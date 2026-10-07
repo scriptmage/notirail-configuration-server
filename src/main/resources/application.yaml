@@ -1,0 +1,15 @@
+server:
+  port: ${SERVER_PORT:8888}
+
+spring:
+  application:
+    name: configuration-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_REPO_URL}
+          default-label: ${CONFIG_REPO_DEFAULT_BRANCH}
+          search-paths:
+            - _default
+            - '{application}'
